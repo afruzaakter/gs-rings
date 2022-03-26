@@ -26,7 +26,7 @@ const Header = () => {
   </Container>
 </Navbar>
 
-<h1 className='mt-2'> Gold & Silver Rings</h1>
+
         </div>
     );
 };
