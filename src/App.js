@@ -2,15 +2,17 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Headers/Header';
-import Product from './components/Products/Product';
+import Shop from './components/Shop/Shop';
+
 // import RingItem from './components/RingItems/RingItem';
-function App() {
+function App(props) {
+  console.log(props.item);
   return (
     <div className="App">
       <Header></Header>
-      {/* <RingItem></RingItem> */}
-     <Product></Product>
-     
+
+      <Shop></Shop>
+    
     </div>
   );
 }
