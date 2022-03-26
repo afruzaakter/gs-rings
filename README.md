@@ -1,6 +1,6 @@
-# How to
+# Golder Silver Rings
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://preeminent-bublanina-62554a.netlify.app/).
 
 ## Available Scripts
 
