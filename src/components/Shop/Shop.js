@@ -5,6 +5,7 @@ import "./Shop.css"
 const Shop = () => {
     const [products, setProduct] = useState([])
     const [cart, setCart] = useState([])
+  
 //    console.log(products);
     useEffect(() =>{
      fetch("data.json")
@@ -12,6 +13,7 @@ const Shop = () => {
      .then(data => setProduct(data))
     },[])
 // console.log(products);
+// add to cart even handler 
     const handleAddToCart = (product) => {
         // console.log(product);
         const newCart = [...cart, product]
@@ -19,25 +21,51 @@ const Shop = () => {
          setCart(newCart);
          
     }
+
+//choose for me even handler add
+
+   const chooseForMeAdd = () => {
+    //    console.log('click me');
+    if (cart.length > 0) {
+        const luckyIndex = [Math.floor(Math.random() * cart.length)];
+        setCart([cart[luckyIndex]]);
+    } else {
+        alert('Please! Choose Your Favorite Product')
+    }
+
+   }
+
+//choose Again evenhandler add 
+
+const chooseAgainHandleAdd = () => {
+    // console.log('click');
+   setCart([])
+
+}
+
     // console.log(cart);
     return (
         <div className='shop-container'>
            
             <div className='product-container'>
-            {/* <h1>Woman Rings Collection</h1> */}
+            
            { 
                products.map(product => <Product key = {product.id} product = {product} handleAddToCart = {handleAddToCart}    ></Product> )
            }
          
             </div>
             <div className='cart-container'>
-                <h3 className='mt-5'>Order Now</h3>
+                <h3 className='mt-5'>Selected  Gold</h3>
                
                {
              cart.map(singleCart =><Cart key = {singleCart.id} cart= {singleCart}></Cart> )
                }
-                <button className='btn btn-primary'>Choose 1 For me</button>
-                <button className='btn btn-primary mt-3'>Choose Again</button>
+               <div>
+               <button onClick={chooseForMeAdd } className='btn btn-primary'>Choose 1 For me</button>
+               </div>
+                <div>
+                <button onClick={chooseAgainHandleAdd} className='btn btn-primary mt-3'>Choose Again</button>
+                </div>
             </div>
 
          
